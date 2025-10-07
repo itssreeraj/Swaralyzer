@@ -1,0 +1,6 @@
+[submodule "SwarAI"]
+	path = SwarAI
+	url = git@github.com:itssreeraj/SwarAI.git
+[submodule "swar-ui"]
+	path = swar-ui
+	url = git@github.com:itssreeraj/swar-ui.git
