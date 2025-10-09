@@ -23,7 +23,7 @@ services:
     expose:
       - "8001"
     environment:
-      - SWARAI_ALLOWED_ORIGINS=http://localhost
+      - SWARAI_ALLOWED_ORIGINS=http://localhost,http://localhost:80,http://127.0.0.1
       - SWARAI_SAMPLE_RATE=44100
       - SWARAI_CHUNK_DURATION=0.5
     volumes:
@@ -39,7 +39,9 @@ services:
     stdin_open: true
     tty: true
     expose:
-      - "3000"
+      - "80"
+    volumes:
+    - ./swar-ui/public/config.js:/usr/share/nginx/html/config.js:ro
     networks:
       - swaralyzer-net
 
