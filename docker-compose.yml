@@ -23,7 +23,7 @@ services:
     expose:
       - "8001"
     environment:
-      - SWARAI_ALLOWED_ORIGINS=http://localhost,http://localhost:80,http://127.0.0.1
+      - SWARAI_ALLOWED_ORIGINS=http://localhost,http://localhost:80,http://127.0.0.1,http://localhost:3000
       - SWARAI_SAMPLE_RATE=44100
       - SWARAI_CHUNK_DURATION=0.5
     volumes:
