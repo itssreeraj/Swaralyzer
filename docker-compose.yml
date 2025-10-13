@@ -20,10 +20,12 @@ services:
     build: ./SwarAI
     container_name: swaralyzer-ws
     command: uvicorn api_ws_server:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
     expose:
       - "8001"
     environment:
-      - SWARAI_ALLOWED_ORIGINS=http://localhost
+      - SWARAI_ALLOWED_ORIGINS=http://localhost,http://localhost:80,http://127.0.0.1,http://localhost:3000,http://swaralyzer-ui:3000
       - SWARAI_SAMPLE_RATE=44100
       - SWARAI_CHUNK_DURATION=0.5
     volumes:
@@ -39,7 +41,9 @@ services:
     stdin_open: true
     tty: true
     expose:
-      - "3000"
+      - "80"
+    volumes:
+    - ./swar-ui/public/config.js:/usr/share/nginx/html/config.js:ro
     networks:
       - swaralyzer-net
 
